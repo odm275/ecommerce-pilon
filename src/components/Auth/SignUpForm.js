@@ -1,9 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'react-emotion';
 import { register } from '../../state/auth';
 
-class SignUp extends Component {
+/*
+const Input = styled.input.attrs({
+  type: 'text',
+  size: props => (props.small ? 5 : undefined),
+})`
+  border-radius: 3px;
+  border: 1px solid palevioletred;
+  display: block;
+  margin: 0 0 1em;
+  padding: ${props => props.padding};
+
+  ::placeholder {
+    color: palevioletred;
+  }
+`
+*/
+class SignUpForm extends Component {
   initialState = {
     name: '',
     email: '',
@@ -21,15 +37,17 @@ class SignUp extends Component {
       email: this.state.email,
       password: this.state.password,
     };
-    this.props.register(newUser);
   };
   render() {
     return (
-      <div>
-        <h1>Sign up here</h1>
-      </div>
+      <form>
+        <input type="" />
+        <input />
+        <input />
+        <input />
+      </form>
     );
   }
 }
 
-export default SignUp;
+export default SignUpForm;
