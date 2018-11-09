@@ -1,53 +1,93 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import styled from 'react-emotion';
+import styled, { css } from 'react-emotion';
 import { register } from '../../state/auth';
 
-/*
-const Input = styled.input.attrs({
-  type: 'text',
-  size: props => (props.small ? 5 : undefined),
-})`
-  border-radius: 3px;
-  border: 1px solid palevioletred;
-  display: block;
-  margin: 0 0 1em;
-  padding: ${props => props.padding};
+const Form = styled('form')`
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  height: auto;
+  background: #fff;
+  box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
+  margin: 1rem 0;
+  border: 1px solid rgba(34, 36, 38, 0.15);
+`;
 
-  ::placeholder {
-    color: palevioletred;
-  }
-`
-*/
+const Input = styled('input')`
+  color: black;
+  width: 500px;
+  margin-bottom: 10px;
+`;
+
+const Button = styled('button')`
+  background-color: #00baa1;
+  border-color: #00baa1;
+  border-radius: 5px;
+  color: white;
+  width: 100px;
+  height: 50px;
+`;
+
 class SignUpForm extends Component {
   initialState = {
-    name: '',
+    firstName: '',
+    lastName: '',
     email: '',
     password: '',
   };
-  state = initialState;
+  state = this.initialState;
 
-  onChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+  onChange = name => e => {
+    this.setState({ [name]: e.target.value });
   };
   onSubmit = e => {
     e.preventDefault();
     const newUser = {
-      name: this.state.name,
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
       email: this.state.email,
       password: this.state.password,
     };
+    this.props.register(newUser);
   };
   render() {
+    let textInput = null;
     return (
-      <form>
-        <input type="" />
-        <input />
-        <input />
-        <input />
-      </form>
+      <Form>
+        <label name="firstName">First Name</label>
+        <Input
+          innerRef={input => (textInput = input)}
+          onChange={this.onChange('firstName')}
+        />
+        <label name="lastName">Last Name</label>
+        <Input
+          innerRef={input => (textInput = input)}
+          onChange={this.onChange('lastName')}
+        />
+        <label name="email">Email</label>
+        <Input
+          innerRef={input => (textInput = input)}
+          onChange={this.onChange('email')}
+        />
+        <label name="password">Password</label>
+        <Input
+          innerRef={input => (textInput = input)}
+          onChange={this.onChange('password')}
+        />
+        <Button type="submit" onClick={this.onSubmit}>
+          Register
+        </Button>
+      </Form>
     );
   }
 }
 
-export default SignUpForm;
+const mapStateToProps = state => ({
+  auth: state.auth,
+});
+
+export default connect(
+  mapStateToProps,
+  { register },
+)(SignUpForm);

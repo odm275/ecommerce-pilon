@@ -4,6 +4,7 @@ import SignUpForm from '../components/Auth/SignUpForm';
 const SignUp = () => (
   <div>
     <h2>Sign UP here</h2>
+    <SignUpForm />
     <Link to="/">Go back to the homepage</Link>
   </div>
 );

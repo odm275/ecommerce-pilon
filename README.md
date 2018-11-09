@@ -1,5 +1,8 @@
 # Grip Project Ecommerce Shop!
 
-enviorment_id: d35d0266-e235-11e8-9245-0d7a01ae1150
-api_client_id: d3e34e3e-e235-11e8-9a8b-9f083ca2a607
-api_client_secret: 64d16a20961d6c12b05466c840c8f5192e9c6c0053c1ec39dab29fbf02f81194
+
+enviorment_id: 46cd0056-e3cc-11e8-a8aa-4de4aa86614d
+
+api_client_id: 475572ba-e3cc-11e8-a70e-79c0bfbcdfde
+
+api_client_secret: ac4c15a5200083e28d4a4bf93dda27d4bded9492ecb324d072e2cdc356e4a222

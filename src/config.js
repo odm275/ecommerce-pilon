@@ -8,6 +8,6 @@ const axiosInstance = axios.create({
 
 export default {
   pilonApiBaseUrl,
-  environmentId: '8634b5a6-e159-11e8-a233-4555c0d44ca2',
+  environmentId: '46cd0056-e3cc-11e8-a8aa-4de4aa86614d',
   pilonApi: axiosInstance,
 };

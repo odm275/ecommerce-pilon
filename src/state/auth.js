@@ -6,14 +6,12 @@ const SET_AUTHENTICATED_CUSTOMER = 'SET_AUTHENTICATED_CUSTOMER';
 
 //  AUTH
 const initialState = {
-  auth: {
-    token: null,
-    environmentId: null,
-    customerId: null,
-    expiration: null,
-    redirectAfterLogin: null,
-    customer: {},
-  },
+  token: null,
+  environmentId: null,
+  customerId: null,
+  expiration: null,
+  redirectAfterLogin: null,
+  customer: {},
 };
 //reducers
 export default (state = initialState, action) => {
@@ -50,6 +48,7 @@ export const register = customerData => dispatch => {
       environment_id: config.environmentId,
     })
     .then(resToken => {
+      console.log(customerData);
       config.pilonApi
         .post(
           '/customers',
