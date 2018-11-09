@@ -48,7 +48,6 @@ export const register = customerData => dispatch => {
       environment_id: config.environmentId,
     })
     .then(resToken => {
-      console.log(customerData);
       config.pilonApi
         .post(
           '/customers',
